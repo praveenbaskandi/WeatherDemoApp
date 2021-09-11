@@ -53,7 +53,9 @@ class MainActivity : BaseActivity() {
         settingObserver()
     }
 
-    // check if network is there or not and call API accordingly
+    /**
+     * check if network is there or not and call API accordingly
+     */
     fun checkNetworkConnection() {
         if (NetworkUtils.isConnected(mContext)) {
             mMainViewModel?.errorShow?.value = false
@@ -76,6 +78,9 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    /**
+     * Asking for permission in case no permission is given
+     */
     private fun askLocationPermission() {
         ActivityCompat.requestPermissions(
             this,
@@ -99,8 +104,9 @@ class MainActivity : BaseActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-
-    // getting city name from Geo-locator
+    /**
+     * getting city name from Geo-locator
+     */
     @SuppressLint("MissingPermission")
     private fun getLatLocation() {
         mFusedLocationClient.lastLocation
@@ -113,7 +119,9 @@ class MainActivity : BaseActivity() {
             }
     }
 
-    // setting observer to observe data changes
+    /**
+     * setting observer to observe data changes
+     */
     private fun settingObserver() {
         mMainViewModel!!.dataListSuccess.observe(this) { apiObserverDataModel ->
             hideProgressDialog()
@@ -134,7 +142,9 @@ class MainActivity : BaseActivity() {
     }
 
 
-    // calling api to get latest weather report
+    /**
+     * calling api to get latest weather report
+     */
     private fun callSampleApi() {
         showProgressDialog("")
         mMainViewModel?.getDataListApi()

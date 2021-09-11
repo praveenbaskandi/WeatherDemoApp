@@ -2,6 +2,11 @@ package com.praveen.weatherappdemo.appUtil
 
 object ConstantFun {
 
+    /**
+     * Convert string to link to show image
+     * @param weatherName is model class data from API.
+     * @return link for the images.
+     * */
     fun getWeatherLink(weatherName: String): String {
         return when (weatherName) {
             "fod" -> "https://res.cloudinary.com/dzmfpzfou/image/upload/v1631376274/weather/fog_hbm21z.png"
