@@ -45,6 +45,10 @@ class MainViewModel : BaseViewModel() {
         return dataList as MutableLiveData<List<DataModelClass.Weather>>
     }
 
+    /**
+     * Setting mutable live data from the data
+     * @param data is model class data from API.
+     * */
     fun setDataListData(data: DataModelClass) {
         showTemperature.postValue(data.main.temp.toString())
         showCity.postValue(data.name)
@@ -56,7 +60,7 @@ class MainViewModel : BaseViewModel() {
 
 
     /**
-     * calling data api to get the list
+     * calling weather data api to get weather data
      * */
     fun getDataListApi() {
         CoroutineScope(Dispatchers.IO).launch {
